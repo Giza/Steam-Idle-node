@@ -1,6 +1,6 @@
 @echo off
 setlocal enableextensions
-title Ilde Steam cards [v0.30] console by Giza(tr1ton)
+title Ilde Steam cards [v0.50] console by Giza(tr1ton)
 color 80
 chcp 65001> nul
 pushd "%~dp0"
