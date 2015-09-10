@@ -8,7 +8,7 @@ pushd "%~dp0"
 :Tools
 set "IdleCfg=%~dpn0.ini"
 set "SfkTool=%~dp0Resources\Tools\Sfk.exe"
-set "nodetool=%~dp0node.exe"
+set "nodetool=node"
 
 :Shortcuts
 set "Date=%date%"
