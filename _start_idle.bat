@@ -1,6 +1,6 @@
 @echo off
 setlocal enableextensions
-title Ilde Steam cards [v0.50] console by Giza(tr1ton)
+title Ilde Steam cards [v0.30] console by Giza(tr1ton)
 color 80
 chcp 65001> nul
 pushd "%~dp0"
@@ -8,7 +8,7 @@ pushd "%~dp0"
 :Tools
 set "IdleCfg=%~dpn0.ini"
 set "SfkTool=%~dp0Resources\Tools\Sfk.exe"
-set "nodetool=node"
+set "nodetool=%~dp0node.exe"
 
 :Shortcuts
 set "Date=%date%"
@@ -44,6 +44,7 @@ if exist "%acc_14%\*.js" (%EchoD% "    [blue]14. [def]%acc_14%;")
 if exist "%acc_15%\*.js" (%EchoD% "    [blue]15. [def]%acc_15%;")
 if exist "%acc_16%\*.js" (%EchoD% "    [blue]16. [def]%acc_16%;")
 if exist "%acc_17%\*.js" (%EchoD% "    [blue]17. [def]%acc_17%;")
+%EchoD% "    [blue]98. [def]All start;"
 %EchoD% "    [blue]99. [def]Another account;"
 echo.
 %EchoD% "    [blue]Q.  [def]Quit the program."
@@ -124,6 +125,8 @@ set acc=%acc_17%
 goto idletime
 )
 
+if /i "%Action%"=="98" (goto idletime)
+
 if /i "%Action%"=="99" (goto UserAccount)
 
 if /i "%Action%"=="Q"  (goto Quitidle)
@@ -136,12 +139,18 @@ echo.
 echo.
 %EchoD% "    [blue]1. Standart;"
 %EchoD% "    [blue]2. Start all game 2 hours;"
-%EchoD% "    [blue]3. Manual all game hours;"
+if not "%Action%"=="98" (%EchoD% "    [blue]3. Manual all game hours;")
 echo.
 
 set "Action1="
 set /p "Action1=> "
 cls
+
+if /i "%Action%"=="98" (
+if /i "%Action1%"=="1" (goto idleAllStart_one_game)
+if /i "%Action1%"=="2" (goto idleAllStart_all_game_2h)
+)
+
 
 if /i "%Action1%"=="1" (goto idletime_one_game)
 if /i "%Action1%"=="2" (goto idletime_all_game_2h)
@@ -274,6 +283,47 @@ goto ActionMenu
 :idletime_all_game_manual
 start %nodetool% %acc%\%jsscript_manual%
 goto ActionMenu
+
+:idleAllStart_one_game
+start %nodetool% %acc_1%\%jsscript%
+start %nodetool% %acc_2%\%jsscript%
+start %nodetool% %acc_3%\%jsscript%
+start %nodetool% %acc_4%\%jsscript%
+start %nodetool% %acc_5%\%jsscript%
+start %nodetool% %acc_6%\%jsscript%
+start %nodetool% %acc_7%\%jsscript%
+start %nodetool% %acc_8%\%jsscript%
+start %nodetool% %acc_9%\%jsscript%
+start %nodetool% %acc_10%\%jsscript%
+start %nodetool% %acc_11%\%jsscript%
+start %nodetool% %acc_12%\%jsscript%
+start %nodetool% %acc_13%\%jsscript%
+start %nodetool% %acc_14%\%jsscript%
+start %nodetool% %acc_15%\%jsscript%
+start %nodetool% %acc_16%\%jsscript%
+start %nodetool% %acc_17%\%jsscript%
+goto ActionMenu
+
+:idleAllStart_all_game_2h
+start %nodetool% %acc_1%\%jsscript2h%
+start %nodetool% %acc_2%\%jsscript2h%
+start %nodetool% %acc_3%\%jsscript2h%
+start %nodetool% %acc_4%\%jsscript2h%
+start %nodetool% %acc_5%\%jsscript2h%
+start %nodetool% %acc_6%\%jsscript2h%
+start %nodetool% %acc_7%\%jsscript2h%
+start %nodetool% %acc_8%\%jsscript2h%
+start %nodetool% %acc_9%\%jsscript2h%
+start %nodetool% %acc_10%\%jsscript2h%
+start %nodetool% %acc_11%\%jsscript2h%
+start %nodetool% %acc_12%\%jsscript2h%
+start %nodetool% %acc_13%\%jsscript2h%
+start %nodetool% %acc_14%\%jsscript2h%
+start %nodetool% %acc_15%\%jsscript2h%
+start %nodetool% %acc_16%\%jsscript2h%
+start %nodetool% %acc_17%\%jsscript2h%
+goto ActionMenu
+
 
 :Quitidle
 	color
