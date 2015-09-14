@@ -112,6 +112,7 @@ function createIdler(userinfo, timer){
 				var b = body.match(/<a class="btn_green_white_innerfade btn_small_thin" href="steam:\/\/run\/(\d+)">/);
 				var gamename = body.match(/You can get (.*?) more trading card(.*?)by playing (.*?).	<\/div>/);
 				var dropcard = body.match(/<span class="progress_info_bold">(\d+) card drop(.*?)remaining<\/span>/);
+				var nickname = body.match(/data-miniprofile="(.*?)">(.*?)<\/a>/);
 				if (b) {
 				    //console.log(userinfo.username);
 					console.log("||Profile: " + nickname[2]);
