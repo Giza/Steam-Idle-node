@@ -1,6 +1,6 @@
 @echo off
 setlocal enableextensions
-title Ilde Steam cards [v0.30] console by Giza(tr1ton)
+title Ilde Steam cards [v0.60] console by Giza(tr1ton)
 color 80
 chcp 65001> nul
 pushd "%~dp0"
@@ -8,7 +8,7 @@ pushd "%~dp0"
 :Tools
 set "IdleCfg=%~dpn0.ini"
 set "SfkTool=%~dp0Resources\Tools\Sfk.exe"
-set "nodetool=%~dp0node.exe"
+set "nodetool=node.exe"
 
 :Shortcuts
 set "Date=%date%"
